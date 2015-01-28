@@ -1,0 +1,26 @@
+<div class="row add-del-item">
+	<!-- 左侧列表 -->
+	<div class="col-md-5 box-round box-list">
+		<p class="" ng-repeat="item in leftList" ng-class="{'active': item.selected}" ng-click="item.selected = !item.selected">
+			{{item.name}}
+		</p>
+	</div>
+
+	<!-- 中间按钮 -->
+	<div class="col-md-2">
+		<div class="text-center">
+			<button class="btn btn-default" ng-click="toRight()"><span ng-bind-html="toRightBtn"></span></button>
+		</div>
+		<div class="text-center">
+			<button class="btn btn-default" ng-click="toLeft()"><span ng-bind-html="toLeftBtn"></span></button>
+		</div>
+	</div>
+
+	<!-- 右侧列表 -->
+	<div class="col-md-5 box-round box-list">
+		<p class="rela" ng-repeat="item in rightList" ng-class="{'active': item.selected}" ng-click="item.selected = !item.selected">
+			{{ item.name }}
+			<a class="absol text-center" href="javascript:;" ng-click="delItem($index)">&times;</a>
+		</p>
+	</div>
+</div>

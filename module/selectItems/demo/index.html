@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>AngularJS</title>
+    <link rel="stylesheet" type="text/css" href="../../../lib/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../../../lib/angular/angular.min.js"></script>
+    <script src="../../../lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <style>
+        a,
+        a:hover,
+        a:active,
+        a:visited {
+            text-decoration: none;
+        }
+        .rela {
+            position: relative;
+        }
+        .absol {
+            position: absolute;
+        }
+        .icon-arrow-right {
+            width: 0!important;
+            height: 0;
+            border: 5px solid transparent;
+            border-left-color: #333;
+            vertical-align: middle;
+        }
+        .icon-arrow-down {
+            width: 0!important;
+            height: 0;
+            border: 5px solid transparent;
+            border-top-color: #333;
+            vertical-align: middle;
+        }
+        .box-round {
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+        }
+        .select-box > .text-center {
+            line-height: 500px;
+        }
+        .select-box .panel {
+            border: 0;
+            border-radius: 0;
+        }
+        .select-box .panel-body {
+            padding: 0;
+        }
+        .select-box .panel-body .item {
+            text-indent: 2em;
+            line-height: 30px;
+        }
+        .select-box .box-list {
+            height:450px;
+            overflow:auto;
+            border:1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .select-box .box-list > p {
+            margin: 0;
+            line-height: 30px;
+            text-indent: 2em;
+        }
+        .select-box .box-list > p:hover {
+            background-color: #efefef;
+        }
+        .select-box .box-list > p a {
+            display: none;
+            width: 30px;
+            height: 30px;
+            right: 0;
+            top: 0;
+            background-color: #428bca;
+            color: #fff;
+            font-size: 24px;
+            text-indent: 0;
+        }
+        .select-box .box-list > p:hover a {
+            display: block;
+        }
+        .select-box .item.active {
+            background-color: #428bca;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body ng-app="selectItems">
+
+    <div style="width:700px;margin:0 auto;">
+        <div select-items groups="groupList" items="selectedItemList" name="会员" unique-flag="id"></div>
+    </div>
+
+    <script src="../selectItems.js"></script>
+    <script>
+        angular.module('selectItems', ['ui.bootstrap','z.selectItems'])
+            .run(['$rootScope', '$http',
+                function ($rootScope, $http) {
+
+                    // 获取全部数据
+                    $http.get('test.json').success(function (data) {
+                        $rootScope.groupList = data || [];
+                    });
+
+                    // 放置选中数据的列表
+                    $rootScope.selectedItemList = [];
+
+                    $rootScope.$watch('selectedItemList', function () {
+                        // 控制台查看选中数据
+                        console.log($rootScope.selectedItemList);
+                    }, true);
+                }
+            ]);
+    </script>
+</body>
+</html>

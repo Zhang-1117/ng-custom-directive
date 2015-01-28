@@ -1,0 +1,46 @@
+
+<div class="row select-box">
+
+	<div class="col-md-5 side">
+		<form class="form-inline" role="form" style="height:50px;">
+		  	<div class="form-group">
+		  		<input type="text" class="form-control" style="width:auto;">
+		  		<button class="btn btn-default">搜索</button>
+		  	</div>
+		</form>
+
+		<!-- 组-成员列表 -->
+		<div class="box-round box-list">
+			<accordion close-others="false">
+				<accordion-group is-open="status.open" ng-repeat="group in groups">
+					<accordion-heading>
+						<a href="javascript:;" ng-click="getData(group, $index)">
+							<i class="glyphicon" ng-class="{'icon-arrow-down': group.open, 'icon-arrow-right': !group.open}"></i> &nbsp;&nbsp;&nbsp;&nbsp;
+							{{ group.groupname }}
+						</a>
+					</accordion-heading>
+					<a class="item" href="javascript:;" ng-repeat="member in group.members" ng-class="{'active': member.$$hashKey === selectedHashKey}" style="display:block;" ng-click="addItem(member, $index)">{{ member.name }}</a>
+				</accordion-group>
+			</accordion>
+		</div>
+			
+	</div>
+
+	<div class="col-md-2 text-center">
+		<span class="glyphicon glyphicon-chevron-right" style="vertical-align:middle;font-size:40px;color:#ccc;"></span>
+	</div>
+
+	<div class="col-md-5 side">
+		<div style="height:50px;">
+			已选{{ name }}：<a href="javascript:;">{{ count }}个</a>
+		</div>
+
+		<!-- 选中成员列表 -->
+		<div class="box-round box-list">
+			<p class="rela" ng-repeat="item in items">
+				{{ item.name }}
+				<a class="absol text-center" href="javascript:;" ng-click="delItem($index)">&times;</a>
+			</p>
+		</div>
+	</div>
+</div>

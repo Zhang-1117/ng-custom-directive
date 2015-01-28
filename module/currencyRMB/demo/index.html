@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>AngularJs</title>
+	<script src="../../../lib/angular/angular.min.js"></script>
+</head>
+<body ng-app="currencyRMB">
+	<form name="test">
+		<input type="text" name="price" ng-pattern="/^[￥0-9]+$/" ng-model="price" currencyrmb/>
+		<span>ng-model值为{{price}}</span>
+		<span ng-show="test.price.$error.pattern">格式错误</span>
+	</form>
+
+	<script src="../currencyRMB.js"></script>
+	<script>
+		angular.module("currencyRMB", ["z.currencyRMB"])
+			.run(['$rootScope', function ($rootScope) {
+				$rootScope.price = 100;
+			}]);
+	</script>
+</body>
+</html>

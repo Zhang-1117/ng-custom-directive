@@ -16,6 +16,7 @@
  * {Number} selectedIndex: 当前选中的标签索引值
  * {Array} groups: 数据来源列表
  * {Boolean} showDel: 是否显示删除按钮
+ * {Boolean} showIndex: 标签是否显示标签序号
  * {Function} delEvent: 删除事件
  ************************************************************************/
 angular.module("z.scrollTab", [])
@@ -29,6 +30,7 @@ angular.module("z.scrollTab", [])
                 groups: '=',
                 selectedIndex: '=',
                 showDel: '=',
+                showIndex: '=',
                 delEvent: '&'
             },
             template:
@@ -37,7 +39,7 @@ angular.module("z.scrollTab", [])
                     '<a href="javascript:;" class="tab-right-btn absol" ng-click="rightmove()"><i class="icon-tab-right"></i></a>'+
                     '<div class="tab-ul-wrapper"><ul class="clearfix tab-ul">'+
                         '<li ng-repeat="group in groups" class="rela" ng-class="{active: $index == selectedIndex}" ng-click="select({i: $index})">' +
-                            '{{group.name}}{{$index + 1}} <a class="absol" ng-show="showDel && $index != 0" href="javascript:;" ng-click="delEvent({i: $index})">&times;</a>' +
+                            '{{group.name}}{{showIndex ? $index + 1 : ""}} <a class="absol" ng-show="showDel && $index != 0" href="javascript:;" ng-click="delEvent({i: $index})">&times;</a>' +
                         '</li>'+
                     '</ul/div>'+
                 '</div>',

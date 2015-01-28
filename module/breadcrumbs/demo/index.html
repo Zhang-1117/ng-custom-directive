@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>breadcrumbs</title>
+    <link rel="stylesheet" href="../../../lib/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../../../lib/angular/angular.min.js"></script>
+    <script src="../../../lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+</head>
+<body ng-app="breadcrumbs">
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-2 col-md2 sidebar">
+			<ul class="nav">
+	<li class="active">
+		<a ui-sref="home">首页</a>
+	</li>
+	<li>
+		<a ui-sref="home.second">次页</a>
+	</li>
+</ul>
+		</div>
+		<div class="col-sm10 col-md-10">
+			<breadcrumbs display-name="data.displayName" front-msg="当前页面"></breadcrumbs>
+			<div class="content-main" ui-view></div>
+		</div>
+	</div>
+</div>
+
+<script src="../breadcrumbs.js"></script>
+<script>
+    angular.module('breadcrumbs', ['ui.router', 'z.breadcrumbs']).
+    config(['$stateProvider', '$urlRouterProvider',
+	function($stateProvider, $urlRouterProvider) {
+		$urlRouterProvider.otherwise('/');
+
+		$stateProvider.
+		state('home', {
+			url: '/',
+			template: '<h1>home page</h1>',
+			data: {
+				displayName: '首页'
+			}
+		}).
+		state('home.second', {
+			url: 'second',
+			template: '<h1>second page</h1>',
+			data: {
+				displayName: '次页'
+			}
+		});
+	}
+]);
+</script>
+</body>
+</html>

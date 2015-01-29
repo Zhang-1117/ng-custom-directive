@@ -12,7 +12,6 @@
  * items: 右侧选中的数据列表
  * name: 数据种类名称
  * uniqueFlag: 数据去重的标志key
- * templateUrl: 模板, 相对于页面的路径
  *************************************************************************/
 angular.module("z.selectItems", [])
     .directive('selectItems', function () {

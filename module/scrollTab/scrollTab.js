@@ -16,7 +16,7 @@
  * {Number} selectedIndex: 当前选中的标签索引值
  * {Array} groups: 数据来源列表
  * {Boolean} showDel: 是否显示删除按钮
- * {Boolean} showIndex: 标签是否显示标签序号
+ * {Boolean} showIndex: 是否显示标签序号
  * {Function} delEvent: 删除事件
  ************************************************************************/
 angular.module("z.scrollTab", [])

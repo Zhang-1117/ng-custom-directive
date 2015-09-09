@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>AngularJS</title>
+    <link rel="stylesheet" type="text/css" href="../../../lib/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../../../lib/angular/angular.min.js"></script>
+    <script src="../../../lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <style type="text/css">
+        .timeline,
+        .left-scale,
+        .right-scale {
+            width: 100%;
+            height: 0;
+            font-size: 0;
+            border-bottom: 1px solid #000;
+            position: relative;
+            margin: 0 auto;
+        }
+        .left-scale,
+        .right-scale {
+            width: 10px;
+            position: absolute;
+        }
+        .left-scale {
+            left: -10px;
+        }
+        .right-scale {
+            right: -10px;
+        }
+        .timeline-scale {
+            width: 0;
+            height: 10px;
+            border-left: 1px solid #000;
+            display: block;
+            position: absolute;
+        }
+        .mark {
+            background-color: #000;
+            position: absolute;
+            opacity: 0.5;
+        }
+        .mark-title {
+            display: inline-block;
+            padding: 5px;
+            font-size: 12px;
+            color: #000;
+            position: absolute;
+        }
+        .timeline-title {
+            display: inline-block;
+            padding: 5px;
+            font-size: 12px;
+            position: absolute;
+            left: 15px;
+        }
+        .timeline-title-arrow {
+            content: '';
+            display: inline-block;
+            width: 0;
+            height: 0;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body ng-app="time">
+    <div style="width: 80%; margin: 50px auto;">
+        <div class="timeline" time-line count="16" title="data.title" my-array="data.marks" mark-width="20" title-color="#ddd" title-arrow-width="7">
+            <i class="left-scale"></i>
+            <i class="right-scale"></i>
+            <div class="timeline-title"></div>
+        </div>
+    </div>
+    <script src="../timeLine.js"></script>
+    <script>
+        angular.module('time', ['ui.bootstrap','z.timeLine'])
+            .run(['$rootScope', '$http',
+                function ($rootScope, $http) {
+                    $rootScope.data = {
+                        title: "时间轴名称",
+                        marks: [
+                            {pos: 3, posTitle: "12月"},
+                            {pos: 5, posTitle: "6月"},
+                            {pos: 9, posTitle: "2016/1月"}
+                        ]
+                    };
+                }
+            ]);
+    </script>
+</body>
+</html>

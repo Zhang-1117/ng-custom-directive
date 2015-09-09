@@ -1,0 +1,34 @@
+[
+	{
+		"members": [
+			{"name": "a.com"},
+			{"name": "b.com"},
+			{"name": "c.com"}
+		],
+		"groupname": "group1"
+	},
+	{
+		"members": [
+			{"name": "d.com"},
+			{"name": "e.com"},
+			{"name": "f.com"}
+		],
+		"groupname": "group2"
+	},
+	{
+		"members": [
+			{"name": "g.com"},
+			{"name": "h.com"},
+			{"name": "i.com"}
+		],
+		"groupname": "group3"
+	},
+	{
+		"members": [
+			{"name": "j.com"},
+			{"name": "k.com"},
+			{"name": "l.com"}
+		],
+		"groupname": "group4"
+	}
+]

@@ -83,6 +83,7 @@ angular.module("z.timeLine", [])
 
 				// 当时间轴宽度发生变化时，修正标记及标记title的left定位
 				var modifyLeft = function () {
+					if (!document.querySelector('.timeline')) return;
 					lineWidth = ele[0].offsetWidth;
 					var markList = document.querySelectorAll('.mark'),
 						markTitleList = document.querySelectorAll('.mark-title');

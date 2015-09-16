@@ -53,6 +53,7 @@ angular.module("z.timeLine", [])
 
 				// 生成标记
 				var createMark = function () {
+					scope.myArray = scope.myArray || [];
 					angular.forEach(scope.myArray, function (val, i) {
 						lineObj.append('<div class="mark" style="width: '+ scope.markWidth +'px; height: '+ scope.markWidth +'px; border-radius: '+ scope.markWidth +'px; top: -'+ scope.markWidth/2 +'px; left: '+ (val.pos/count - scope.markWidth/lineWidth/2)*100 +'%;"/>');
 						createMarkTit(i, val.pos, val.posTitle);
@@ -87,6 +88,7 @@ angular.module("z.timeLine", [])
 					lineWidth = ele[0].offsetWidth;
 					var markList = document.querySelectorAll('.mark'),
 						markTitleList = document.querySelectorAll('.mark-title');
+					scope.myArray = scope.myArray || [];
 					angular.forEach(scope.myArray, function (val, i) {
 						angular.element(markList[i]).css({
 							left: (val.pos/count - scope.markWidth/lineWidth/2)*100 + '%'

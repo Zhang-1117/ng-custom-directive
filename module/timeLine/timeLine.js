@@ -5,7 +5,7 @@
  *              标题框内icon的class为icon-titleline-title 可由外部进行修饰定义
  * useage: 
  * <div class="timeline" time-line
-        count="16" title="data.title" my-array="data.marks"
+        count="16" title-name="data.title" my-array="data.marks"
         mark-width="20" title-color="#ddd" title-arrow-width="7">
         <i class="left-scale"></i>
         <i class="right-scale"></i>
@@ -18,7 +18,7 @@ angular.module("z.timeLine", [])
 		return {
 			restrict: 'EA',
 			scope: {
-				title: "=", // 时间轴title
+				titleName: "=", // 时间轴title
 				count: "@", // 刻度数量
 				myArray: "=", // 需要标记的数据数组 e.g.[{pos: 3, posTitle: "12月"},{pos: 5, posTitle: "6月"}]
 				markWidth: "@", // 标记直径

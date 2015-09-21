@@ -66,7 +66,7 @@ angular.module("z.timeLine", [])
 						titleArrow,
 						height,
 						width;
-					title.innerHTML = "<i class=\"timeline-title-arrow\"></i><i class=\"icon-titleline-title\"></i>" + scope.title;
+					title.innerHTML = "<i class=\"timeline-title-arrow\"></i><i class=\"icon-titleline-title\"></i>" + scope.titleName;
 					titleArrow = document.querySelectorAll('.timeline-title-arrow')[0];
 					height = title.offsetHeight;
 					width = title.offsetWidth;
